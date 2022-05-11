@@ -1,0 +1,29 @@
+/* base setting */
+*{ margin:0; padding: 0; box-sizing: border-box; color: #333; font-family: sans-serif; }
+
+.grid{ display: grid; }
+
+#calendar{ display: flex; flex-direction: column; gap:3rem; }
+
+.calendar{
+	width: 300px;
+	display: grid;
+	grid-template-columns: repeat(7,1fr);
+}
+.calendar>div:nth-child(7n){
+	color:blue;
+}
+.calendar>div:nth-child(7n+1){
+	color:red;
+}
+.calendar{ text-align: center;  }
+.calendar .w{ 
+	padding: 0.5rem;
+	background: darkblue;
+	color:#fff !important;
+}
+
+.calendar div{
+	line-height: 1.5;
+	padding: 0.25rem 0;
+}
