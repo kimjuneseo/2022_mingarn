@@ -1,0 +1,6 @@
+*{margin: 0; padding: 0; box-sizing: border-box; color: inherit;}
+a{text-decoration: none;}
+img{width: 100%; height: 100%; object-fit: cover; }
+.flex{display: flex;}
+.grid{display: grid;}
+.none{display: none;}
