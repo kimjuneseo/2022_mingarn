@@ -10,13 +10,12 @@ body{background: #111;}
 header{padding: 2rem 0rem;}
 header .logo{width: 200px; }
 header nav{ height: 80px; }
-header nav .menu{color: #d0aa4b; justify-content: center; align-items: center; gap: 1rem; position: relative;}
-header nav .menu .item{width: 120px; text-align: center; position: relative;}
+header nav .menu{color: #d0aa4b; justify-content: center; align-items: center;  position: relative;}
+header nav .menu .item{width: 200px; text-align: center; position: relative;}
 header nav .menu .item:hover::before{content: ''; position: absolute; width: 200px; bottom: -10px; left: 0; background: #d0aa4b; height: 2px; animation: go 1.5s both ease-in-out;}
-header nav .menu .item:hover~.sub_menu{height: 300px; transition: .5s;}
-header nav .menu .sub_menu{width: 100%; display: flex; position: fixed; top: 10%; left: 0%; height: 0px; overflow: hidden; transition: .5s; background: #999;}
-header nav .menu .sub_menu .container{grid-template-columns: repeat(7,1fr); justify-content: center; align-items: center;}
-header nav .menu .sub_menu .container div{width: 120px;}
+header nav .menu .item:hover .sub_menu{height: 300px; transition: .5s;}
+header nav .menu .sub_menu{width: 100%; display: flex; position: fixed; top: 12%; left: 0%; height: 0px; overflow: hidden; transition: .5s; background: #999;}
+header nav .menu .sub_menu .grid{width: 100%; grid-template-columns: repeat(7,120px);  justify-content: center;}
 @keyframes go {
     from{width: 0px;}
     to{width: 120px;}
