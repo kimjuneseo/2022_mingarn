@@ -12,6 +12,7 @@ function ac(day,end,month){
 			${ Array.from( Array(end), (_,idx) => `<div>${idx+1}</div>` ).join('') }
 		</div>
 	`;
+	console.log(Array(end));
 	$calendar.append(c);
 }
 function render(year){
