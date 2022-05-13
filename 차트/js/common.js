@@ -9,7 +9,6 @@ $canvas.height = canvasHeight;
 const r = (max,min) => Math.floor(Math.random()*(max-min))+min;
 const t = (length) => `poiuytrewqlkjhgfdsamnbvcxzPOIUYTREWQLKJHGFDSAMNBVCXZX`.split('').sort( () => Math.random()*5 ).join('').slice(0,length);
 
-
 const dummy = [
 	{ 
 		title : t(r(10,3)),
@@ -31,22 +30,30 @@ const dummy = [
 
 function render(){
 	const length = dummy.length;
-	const [pl,pr,pt,pb] = [50,0,10,50];
 	const limit = 100; // 간격 
+	// text때문에 여백을 줌
+	const [pl,pr,pt,pb] = [50,0,10,50];
 	const maxHeight = (canvasHeight-pt-pb);
+	
+	// 리턴된 배열을 스프래드로 풀어씀 그리고 그중에 가장 큰 값
 	let maxValue = Math.max(...dummy.map( ({newValue,oldValue}) => Math.max(newValue,oldValue)  ));
-	maxValue = Math.ceil(maxValue/limit)*limit;
-	const rowCount = Math.round(maxValue/limit);
-	const rowLimit = maxHeight/rowCount;
-	const p = maxHeight/maxValue;
+	// 올림
+	maxValue = Math.ceil(maxValue/limit)*limit;	
 
+	// row 개수
+	const rowCount = Math.round(maxValue/limit);
+	// row 간격
+	const rowLimit = maxHeight/rowCount;
+	// 
+	const p = maxHeight/maxValue;
+	
 	for(let i=0; i<=rowCount; i++){
+		// 선 그어주기
 		const y = canvasHeight-i*rowLimit-pb;
 		context.beginPath();
-		context.textAlign = 'right';
 		context.fillStyle = '#eee';
 		context.fillRect(pl,y,canvasWidth-pr,1);
-
+		// 값 그려주기
 		context.textAlign = 'center';	
 		context.fillStyle = '#777';
 		context.fillText(limit*i,pl-5,y+5);
@@ -59,6 +66,7 @@ function render(){
 
 	dummy.forEach( ({title,newValue,oldValue},idx) => {
 		const x = pl+px+(width*idx)+( gap*idx );
+		console.log(x);
 		const y = pt+maxHeight-p*newValue;
 		const height = p*newValue;		
 
