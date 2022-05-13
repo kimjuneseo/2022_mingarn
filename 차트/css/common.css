@@ -1,0 +1,5 @@
+/* base setting */
+*{ margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; color: #333; }
+
+
+#chart{ margin: 5rem 0; }
