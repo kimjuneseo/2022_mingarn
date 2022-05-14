@@ -61,8 +61,8 @@ function render(){
 	const width = 150;
 	const px = 50;
 	const p = maxHeight/maxValue;
-	const maxWidth = canvasWidth-pl-pr-px*2;
-	const gap = (maxWidth-width*length)/(length-1);
+	const barWidth = canvasWidth-pl-pr-px*2;
+	const gap = (barWidth-width*length)/(length-1);
 
 	dummy.forEach( ({title,newValue,oldValue},idx) => {
 		const x = pl+px+(width*idx)+( gap*idx );
