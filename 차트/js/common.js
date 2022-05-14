@@ -45,7 +45,6 @@ function render(){
 	// row 간격
 	const rowLimit = maxHeight/rowCount;
 	// 
-	const p = maxHeight/maxValue;
 	
 	for(let i=0; i<=rowCount; i++){
 		// 선 그어주기
@@ -58,9 +57,10 @@ function render(){
 		ctx.fillStyle = '#777';
 		ctx.fillText(limit*i,pl-5,y+5);
 	}
-
+	
 	const width = 150;
 	const px = 50;
+	const p = maxHeight/maxValue;
 	const maxWidth = canvasWidth-pl-pr-px*2;
 	const gap = (maxWidth-width*length)/(length-1);
 
