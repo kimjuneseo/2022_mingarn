@@ -1,5 +1,5 @@
 const $canvas = document.getElementById('chart');
-const context = $canvas.getContext('2d');
+const ctx = $canvas.getContext('2d');
 
 const canvasWidth = 1000;
 const canvasHeight = 400;
@@ -50,13 +50,13 @@ function render(){
 	for(let i=0; i<=rowCount; i++){
 		// 선 그어주기
 		const y = canvasHeight-i*rowLimit-pb;
-		context.beginPath();
-		context.fillStyle = '#eee';
-		context.fillRect(pl,y,canvasWidth-pr,1);
+		ctx.beginPath();
+		ctx.fillStyle = '#eee';
+		ctx.fillRect(pl,y,canvasWidth-pr,1);
 		// 값 그려주기
-		context.textAlign = 'center';	
-		context.fillStyle = '#777';
-		context.fillText(limit*i,pl-5,y+5);
+		ctx.textAlign = 'center';	
+		ctx.fillStyle = '#777';
+		ctx.fillText(limit*i,pl-5,y+5);
 	}
 
 	const width = 150;
@@ -71,34 +71,34 @@ function render(){
 		const height = p*newValue;		
 
 
-		context.beginPath();
-		context.fillStyle = '#888';
-		context.fillRect(x,y,width,height);
-		context.fillStyle = 'red';
-		context.font = '16px serif bold';
-		context.fillText(newValue,x+width/2,y-5);
+		ctx.beginPath();
+		ctx.fillStyle = '#888';
+		ctx.fillRect(x,y,width,height);
+		ctx.fillStyle = 'red';
+		ctx.font = '16px serif bold';
+		ctx.fillText(newValue,x+width/2,y-5);
 
-		context.fillStyle = 'blue';
-		context.fillText(title,x+width/2,pt+maxHeight+pb/3);
+		ctx.fillStyle = 'blue';
+		ctx.fillText(title,x+width/2,pt+maxHeight+pb/3);
 	});
 
-	context.beginPath();
+	ctx.beginPath();
 	dummy.forEach(({oldValue},idx) => {
 		const x = pl+px+(width*idx)+( gap*idx )+(width/2);
 		const y = pt+maxHeight-p*oldValue;
-		context.fillStyle = 'purple';
-		idx ? context.lineTo(x,y) : context.moveTo(x,y);
-		context.stroke();
+		ctx.fillStyle = 'purple';
+		idx ? ctx.lineTo(x,y) : ctx.moveTo(x,y);
+		ctx.stroke();
 	});
 	dummy.forEach(({oldValue},idx) => {
 		const x = pl+px+(width*idx)+( gap*idx )+(width/2);
 		const y = pt+maxHeight-p*oldValue;
-		context.beginPath();
-		context.arc(x,y,5,0,Math.PI*2);	
-		context.fill();
+		ctx.beginPath();
+		ctx.arc(x,y,5,0,Math.PI*2);	
+		ctx.fill();
 
-		context.textAlign = 'center';
-		context.fillText(oldValue,x,y-10);	
+		ctx.textAlign = 'center';
+		ctx.fillText(oldValue,x,y-10);	
 
 	});
 
