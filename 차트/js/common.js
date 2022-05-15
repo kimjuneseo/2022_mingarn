@@ -66,7 +66,6 @@ function render(){
 
 	dummy.forEach( ({title,newValue,oldValue},idx) => {
 		const x = pl+px+(width*idx)+( gap*idx );
-		console.log(x);
 		const y = pt+maxHeight-p*newValue;
 		const height = p*newValue;		
 
