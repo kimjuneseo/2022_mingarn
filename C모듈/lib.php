@@ -11,3 +11,7 @@ function view($fileName, $e=[]){
     require_once("../src/View/$fileName.php");
     require_once("../src/View/footer.php");
 };
+
+function script($text){
+    echo "<script>$text</script>";
+}

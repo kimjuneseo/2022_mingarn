@@ -1,3 +1,4 @@
+
 <section>
     <div class="container">
         <div class="top_info flex">
@@ -6,9 +7,9 @@
         </div>
         <div class="flex pageInfo">
             <div class="flex">
-                <h2>총 <?=$cnt?>건</h2>
-                <h2><?=$page?>p/</h2>
-                <h2><?=$AllPageCnt?>p</h2>
+                <h2>총 .count 건</h2>
+                <h2>p/</h2>
+                <h2>p</h2>
             </div>
             <div class="addBtn">
                 <div class="btn flex">등록</div>
@@ -35,12 +36,11 @@
             </div>
             <?php endforeach; ?>
         </div>
+        <input type="text" placeholder="입력하세요." checked>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
 
         <div class="pageN flex">
-            <div class="item"><a href="/store/prev">
-                    <<</a> </div> <?php for($i = 1; $i <= $AllPageCnt; $i++):?> <div class="item"><a
-                            href="/store/<?=$i?>"><?=$i?></a></div>
-            <?php endfor;?>
+            <div class="item"><a href="/store/prev"><<</a></div> 
             <div class="item"><a href="/store/next">>></a></div>
         </div>
     </div>
