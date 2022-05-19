@@ -7,25 +7,55 @@ img{width: 100%; height: 100%; object-fit: cover; }
 .none{display: none;}
 .container{width: 1400px; margin:0 auto;}
 body{background: #111;}
-header{padding: 2rem 0rem;}
+header{padding: 2rem 0rem; width: 100%; top: 0; left: 0; position: fixed; z-index: 100;}
 header .logo{width: 200px; }
 header nav{ height: 80px; }
 header nav .menu{color: #d0aa4b; justify-content: center; align-items: center;  position: relative; gap: 3rem;}
-header nav .menu .item{ text-align: center; position: relative; }
-header nav .menu .item:hover::before{content: ''; position: absolute; width: 45px; bottom: -10px; left: 0; background: #d0aa4b; height: 2px; animation: go 1.5s both ease-in-out;}
+header nav .menu>.item{ text-align: center; position: relative; height: 85px; display: flex; align-items: center;}
+header nav .menu .item:hover::before{content: ''; position: absolute; width: 45px; bottom: 20px; left: 0; background: #d0aa4b; height: 2px; animation: go 1.5s both ease-in-out;}
 header nav .menu .item:hover .sub_menu{height: 300px; transition: .5s;}
-header nav .menu .sub_menu{width: 100%; display: flex; position: fixed; top: 12%; left: 0%; height: 0px; overflow: hidden; transition: .5s;}
+header nav .menu .sub_menu{width: 100%; display: flex; position: fixed; top: 12%; left: 0%; height: 0px; overflow: hidden; transition: .5s; z-index: 100;}
 
 header nav .menu .sub_menu>.grid{width: 100%;  grid-template-columns: 30% 60%; background: #fff;}
 
-header nav .menu .sub_menu .grid .r_item { height: 100%; background: #511c20; text-align: left; padding-top: 2rem; padding-left: 22rem;}
+header nav .menu .sub_menu .grid .r_item { height: 100%; background: #511c20; text-align: left; padding-top: 2rem; padding-left: 22rem; position: relative;}
+header nav .menu .sub_menu .grid .r_item .mark{position: absolute; bottom: 40%; width: 200px; left: 10%; filter: brightness(.8);}
 header nav .menu .sub_menu .grid .r_item h2{font-weight: 100; padding-bottom: 1rem;}
 header nav .menu .sub_menu .grid .r_item p{opacity: .4; font-style: italic; font-weight: bold;}
 
-header nav .menu .sub_menu .grid .l_item{ padding-left: 4rem; padding-top: 2rem; gap: 2rem; }
-header nav .menu .sub_menu .grid .l_item>div{flex: 1; text-align: center; height: 50px; position: relative;}
-/* header nav .menu .sub_menu .grid .l_item>div .l_sub{position: absolute; left: 100px; top: 0; gap: 1rem;} */
+header nav .menu .sub_menu .grid .l_item{ padding-left: 4rem; padding-top: 2rem; padding-bottom: 2rem;  }
+header nav .menu .sub_menu .grid .l_item>div{flex: 1; text-align: center; height: 100%; position: relative; border-right: 1px solid #534a4b1e; color: #511c20c0; font-weight: bold;}
 
+header nav .menu .sub_menu .grid .l_item>div>a{padding: .2rem 3rem; border-radius: 1px; transition: .5s;}
+header nav .menu .sub_menu .grid .l_item>div>a:hover{background: #511c2017; transition: .5s;}
+header nav .menu .sub_menu .grid .l_item>div .l_sub div:hover{color: #511c20;}
+header nav .menu .sub_menu .grid .l_item>div .l_sub{padding: .4rem 0rem; color: #511c2086;}
+header nav .menu .sub_menu .grid .l_item>div:last-of-type{border: none;}
+
+#slide{padding-top: 10rem;}
+.slide{width: 100%; margin: 0 auto;  overflow: hidden; border: 6px solid #511c20; border-left: none; border-right: none;}
+.slide_items{width: 400%; animation: slide 9s both linear infinite;}
+.slide_items .item{flex: 1; filter: brightness(.8); }
+.slide_items .item .img_box{height: 700px;}
+
+footer{width: 100%; padding: 2rem 0rem; background: #381316;}
+footer .footer{padding: 1rem 0rem;  grid-template-columns: 30% 70%; justify-content: center; border-bottom: 2px solid #000; color: #d0aa4b;}
+footer .footer .r_item{flex-direction: column; align-items: center; gap: .4rem; text-align: center;}
+footer .footer .r_item .img_box{width: 200px;}
+footer .footer .l_item{ justify-content: space-around;}
+footer .footer .l_item .content{flex: 1;}
+
+@keyframes slide {
+    0% {margin-left: 0%;}
+    33%{margin-left: 0%;}  /* 3 */
+    36%{margin-left: -100%;}
+
+    66%{margin-left: -100%;}
+    69%{margin-left: -200%;}
+    96.99%{margin-left: -200%;} 
+    99.99%{margin-left: -300%;} 
+
+}
 @keyframes go {
     from{width: 0px;}
     to{width: 80px;}

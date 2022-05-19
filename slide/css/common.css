@@ -1,0 +1,55 @@
+*{ margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; color:#333; }
+li{ list-style: none; }
+a{ text-decoration: none; }
+
+header {width: 100%; height: 50px;}
+.menu { display: flex; }
+.menu li{ padding: 10px 15px;  white-space: nowrap;}
+.menu li li{ padding: 10px 0; }
+.menu .sub1 li{ position: relative; width: 100%;}
+.menu .sub1{ transform: rotateX(90deg); transition: 0.5s; transform-origin: 0 0; }
+.menu .sub1 .sub2{ position: absolute; left: 100%; top: 0;  transform: rotateY(90deg); transition: 0.5s; transform-origin: 0 0;   width: 100%;}
+
+.menu>li:hover .sub1{ transform: rotateX(0deg);  }
+.menu .sub1 li:hover .sub2{ transform: rotateY(0); }
+
+main{ position: relative; width: 100%; height: 700px;  overflow: hidden;}
+main  .slider{ height: 100%; position: relative; }
+main  .slider>div{ width: 100%; height: 100%; position: absolute;  left: 0; top: 0; }
+main  .slider>div:nth-child(1){ background: lightcoral; animation: slide1 9s infinite linear; }
+main  .slider>div:nth-child(2){ background: lightblue;  animation: slide1 9s -6s infinite linear; }
+main  .slider>div:nth-child(3){ background: lightgreen; animation: slide1 9s -3s infinite linear; }
+
+main .banner{ position: absolute; z-index: 10; left: 0; top: 0;  }
+main .banner div{ position: absolute; left: 0; top: 0; z-index: 0;  padding: 40px 50px;   white-space: nowrap; font-weight: bold; font-size: 50px; opacity: 0;}
+main .banner div:nth-child(1){ animation: banner1 9s infinite linear; }
+main .banner div:nth-child(2){ animation: banner1 9s -6s infinite linear; }
+main .banner div:nth-child(3){ animation: banner1 9s -3s infinite linear; }
+
+@keyframes slide1{
+	00000%{ z-index: 1; opacity: 1; left: 0; }
+	22.22%{ z-index: 1; opacity: 1; left: 0; }
+	30%{ left: -10%; }
+	33.33%{ z-index: 0; opacity: 0;  left: -10%; }
+	33.330001%{ z-index: 0;  left: 10%; }
+	88.88%{ z-index: 0; opacity: 0; left: 10%; }
+	96%{ left: 0%; }
+	99.99%{ z-index: 1; opacity: 1; left: 0; }
+}
+
+@keyframes banner1{
+	00000%{ z-index: 1; opacity: 1; margin-top: 0; }
+	22.22%{ z-index: 1; opacity: 1; margin-top: 0; }
+	25%{ opacity: 0; }
+	30%{ z-index: 0; margin-top: 10px; opacity: 0; }
+	33.330001%{ z-index: 0;  margin-top: 10%; }
+	88.88%{ z-index: 0; opacity: 0; margin-top: -10px; }
+	96%{ margin-top: 0px; opacity: 1; z-index: 1; }
+	99.99%{ z-index: 1; opacity: 1; margin-top: 0; }
+}
+
+/*
+3
+6
+9 
+*/
