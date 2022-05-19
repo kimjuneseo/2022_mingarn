@@ -39,6 +39,7 @@ class Chart
 
         foreach ($dummys as $idx => $item) {
             $color = imagecolorallocate($image,rand(0,255),rand(0,255),rand(0,255));
+     
             $x = $imageWidth/2;
             $y = $imageHeight/2;
             $angle = $p*$item->value;
