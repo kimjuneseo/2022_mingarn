@@ -39,11 +39,14 @@ header nav .menu .sub_menu .grid .l_item>div:last-of-type{border: none;}
 .slide_items .item .img_box{height: 700px;}
 
 footer{width: 100%; padding: 2rem 0rem; background: #381316;}
-footer .footer{padding: 1rem 0rem;  grid-template-columns: 30% 70%; justify-content: center; border-bottom: 2px solid #000; color: #d0aa4b;}
-footer .footer .r_item{flex-direction: column; align-items: center; gap: .4rem; text-align: center;}
+footer .footer{padding: 2rem 0rem;  grid-template-columns: 30% 70%; justify-content: center; border-bottom: 2px solid #d0aa4b; color: #d0aa4b;}
+footer .footer .r_item{flex-direction: column; align-items: center; gap: .9rem; text-align: center;}
 footer .footer .r_item .img_box{width: 200px;}
 footer .footer .l_item{ justify-content: space-around;}
-footer .footer .l_item .content{flex: 1;}
+footer .footer .l_item .content{flex: 1; text-align: center; }
+
+.copy{padding: 1rem 0rem; color: #d0aa4b;}
+
 
 @keyframes slide {
     0% {margin-left: 0%;}
