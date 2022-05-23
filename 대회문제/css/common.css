@@ -11,9 +11,9 @@ button{background: none; cursor: pointer;}
 
 .section{padding-top: 3rem;}
 .main_wrap{
-    background-color: #e5e5f7;
+    /* background-color: #e5e5f7; */
     opacity: 0.8;
-    background: repeating-linear-gradient( 45deg, #511c20, #511c20 1px, #3b1519 2px, #47191e 9px );
+    /* background: #DC511c20 */
     /* background: repeating-linear-gradient( -45deg, #511c20, #511c20 1px, #3b1519 2px, #47191e 9px ); */
 }
 body{background: #220505;}
@@ -70,13 +70,15 @@ input[type="radio"]{display: none;}
 #tab2:checked~.tab2{display: grid;}
 #tab3:checked~.tab3{display: grid;}
 
-#topoo .graph{ grid-template-columns: repeat(5, 1fr); height: 300px; gap: 2rem; align-items: flex-end; justify-content: center; background: #511c20;}
-#topoo .graph .item{width: 50%; background: #777; justify-self: center; }
-#topoo .graph .item:nth-child(1){height: 140px;}
-#topoo .graph .item:nth-child(2){height: 180px;}
-#topoo .graph .item:nth-child(3){height: 100px;}
-#topoo .graph .item:nth-child(4){height: 210px;}
-#topoo .graph .item:nth-child(5){height: 150px;}
+#topoo .graph{ grid-template-columns: repeat(5, 100px); height: 300px; gap: 2rem; align-items: flex-end; justify-content: center; }
+#topoo .graph .item_wrap{ height: 400px; align-items: flex-end; background: #851616; }
+#topoo .graph .item_wrap .item{width: 100%; background: #777; justify-self: center; position: relative;}
+#topoo .graph .item_wrap .item::before{content: attr(data-title); position: absolute; width: 100%; left: 0; top: 100%; text-align: center; color: #d0aa4b;}
+#topoo .graph .item_wrap:nth-child(1) .item{height: 140px;}
+#topoo .graph .item_wrap:nth-child(2) .item{height: 180px;}
+#topoo .graph .item_wrap:nth-child(3) .item{height: 100px;}
+#topoo .graph .item_wrap:nth-child(4) .item{height: 210px;}
+#topoo .graph .item_wrap:nth-child(5) .item{height: 150px;}
 
 
 #event .event{grid-template-columns: repeat(4, 1fr); gap: 1rem;}
