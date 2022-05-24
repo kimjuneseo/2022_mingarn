@@ -62,7 +62,7 @@ header nav .menu .sub_menu .grid .l_item>div:last-of-type{border: none;}
 #tab .container .tab{ display: none; padding-top: 2rem; grid-template-columns: repeat(1, 1fr); gap: 2rem; justify-content: center;}
 #tab .container .tab .item{transition: 1s; padding: 1rem .5rem; grid-template-columns: 20% 60% 20%; align-items: center; border-right: 9px solid #d0aa4b; border-radius: 5px; color: #fff; text-align: center; }
 #tab .container .tab .item:hover{transform: scale(1.05); transition: 1s;}
-
+ 
 #tab .container .tab .item img{ height: 150px;}
 
 input[type="radio"]{display: none;}
