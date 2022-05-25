@@ -276,19 +276,23 @@ function chartPage(){
 async function eventPage(){
     const $container = document.querySelector('.aa');
     const $evnet = [...document.querySelectorAll('.evnet .item')];
+    const data = await get('/restAPI/event.php?yyyy=2022');
+    const $next = document.querySelector('.next');
+    const $prev = document.querySelector('.prev');
     let year = new Date().getFullYear();
+
     function ac(day, end, month){
-        
         let div = document.createElement('div');
         div.innerHTML = `
         <h3 class="month">${month}월</h3>
-         <div class="cc">
-         <div class="w">일</div><div class="w">월</div><div class="w">화</div><div class="w">수</div><div class="w">목</div><div class="w">금</div><div class="w">토</div>
-         ${'<div ></div>'.repeat(day)}
-         ${ Array.from(Array(end), (_,idx) => `<div class="item">${idx+1}</div>`).join('')}
-         </div>
-         `
+        <div class="cc">
+        <div class="w">일</div><div class="w">월</div><div class="w">화</div><div class="w">수</div><div class="w">목</div><div class="w">금</div><div class="w">토</div>
+        ${'<div ></div>'.repeat(day)}
+        ${ Array.from(Array(end), (_,idx) => `<div class="item">${idx+1}</div>`).join('')}
+        </div>
+        `
         const $item = [...div.querySelectorAll('.item')];
+
         $item.forEach((e,idx) => {
             data.items.map(({startDt, endDt}) =>{
                 if( parseInt(startDt.slice(0,4)) == +year && parseInt(startDt.slice(5,7)) == +month && +e.innerText == parseInt(startDt.slice(8,10)) ){
@@ -298,43 +302,36 @@ async function eventPage(){
                         $item[i-1].classList.add('activeEvent');
                     }
                 }
-                // parseInt(startDt.slice(0,4)) == +year && parseInt(startDt.slice(5,7)) == +month && e.innerText == parseInt(startDt.slice(8,10)) ?  : '';
-                // parseInt(endDt.slice(0,4)) == +year && parseInt(endDt.slice(5,7)) == +month && e.innerText == parseInt(endDt.slice(8,10)) ? e.classList.add('activeEvent') : '';
             })
         });
         $container.append(div);
-        
-    }
-    const $next = document.querySelector('.next');
-    const $prev = document.querySelector('.prev');
+    };
+
     function render(year){
         const $year = document.querySelector('.yearText');
-        $year.innerHTML = `<h2 class="year">${year}년</h2>`
-        $next.innerHTML = `<h2 class="year">${year+1}</h2>`
-        $prev.innerHTML = `<h2 class="year">${year-1}</h2>`
+        $year.innerHTML = `<h2 class="year">${year}년</h2>`;
+        $next.innerHTML = `<h2 class="year">${year+1}</h2>`;
+        $prev.innerHTML = `<h2 class="year">${year-1}</h2>`;
         for(let month = 0; month < 12; month++){
             let ym1 = new Date(year, month,1);
             let ym2 = new Date(year, month-1,0);
             ac(ym1.getDay(),ym2.getDate(),month+1 );
-            
         }
-        
-    }
-    let  data = await get('/restAPI/event.php?yyyy=2022');
+    };
+    
     function callRender(){
-        $evnet.forEach(e => {
+        [...$('.years',true)].forEach(e => e.innerHTML = year);
+        $evnet.forEach( e => {
             data.items.map(({startDt, endDt,eventSj}) => {
                 e.innerHTML += parseInt(startDt.slice(5,7)) == +e.dataset.month  &&  +e.dataset.year == year? `
-                 <div class="evnets">
-                   <p> ${startDt} ~ ${endDt} ${eventSj}</p>
-                   </div>
+                <div class="evnets">
+                <p> ${startDt} ~ ${endDt} ${eventSj}</p>
+                </div>
                 `:''; 
             });
-            
         })
+    };
 
-        
-    }
     [...document.querySelectorAll('.moveBtn')].map(e => {
         e.addEventListener("click", function(){
             $container.innerHTML = '';
@@ -343,7 +340,7 @@ async function eventPage(){
             $('.evnets',true).forEach(e => e.remove());
             callRender();
         })
-    })
+    });
     callRender();
     render(year);
 
