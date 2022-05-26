@@ -16,3 +16,7 @@ function view($fileName, $data=[]){
 function script($text){
     echo "<script>$text</script>";
 }
+
+function back(){
+    script("history.back();");
+}

@@ -43,7 +43,7 @@
 </div>
 <div class="popupwrap update_wrap none">
     <div class="popup flex">
-        <form action="update" method="post" class="flex" name="update_form">
+        <form action="/store/update" method="post" class="flex" name="update_form">
             <input type="hidden" name="idx">
             <div class="top_item flex">
                 <h2>주변정보 관라</h2>

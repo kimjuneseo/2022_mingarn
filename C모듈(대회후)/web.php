@@ -6,11 +6,11 @@ $get(
     "/chart@View@chart",
     "/sub1@View@sub1",
     "/store@View@store",
-    "/api/:idx@View@select",
+    "/api/:idx@Store@select",
 );
 $post(
-    "/insert@View@insert",
-    "/update@View@update",
+    "/insert@Store@insert",
+    "/store/update@Store@update",
 );
 
 
