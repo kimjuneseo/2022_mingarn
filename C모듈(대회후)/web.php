@@ -7,6 +7,7 @@ $get(
     "/sub1@View@sub1",
     "/store@View@store",
     "/api/:idx@Store@select",
+    "/voting@View@voting"
 );
 $post(
     "/insert@Store@insert",

@@ -19,7 +19,9 @@ class View{
         $data = fetchAll('SELECT * FROM `store` order by `idx` desc');
         view('store', ["item"=>$data]);
     }
-
+    function voting(){
+        view('voting');
+    }
  
     
 }

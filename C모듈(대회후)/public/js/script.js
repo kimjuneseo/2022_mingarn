@@ -33,15 +33,8 @@ function chartPage(){
     
     $canvas3.width = canvasWidth;
     $canvas3.height = canvasHeight;
-    
- 
-    
-    // let dummy = await get('/restAPI/event.php?yyyy=2022');
-    
-    
-    
+
     async function render1() {
-        // ?yyyy=2022?mm=04
     
         let datas = await get('/restAPI/utilityBills.php?mm=04&yyyy=2022');
     
@@ -119,8 +112,6 @@ function chartPage(){
     render1();
     
     async function render2() {
-        // ?yyyy=2022?mm=04
-    
         let datas = await get('/restAPI/utilityBills.php?mm=04&yyyy=2022');
     
         datas = datas.water;
@@ -366,7 +357,6 @@ function storePage(){
         };
         
         let startNum = Math.floor(nowPage/10)*10
-        console.log(startNum);
         let endNum = startItem+10 > maxPage ? maxPage : startItem+10;
 
         $('.n_btn').innerHTML = '';
@@ -416,7 +406,6 @@ function storePage(){
         e.addEventListener("click", function(){
             nowPage = +this.dataset.y ? Math.floor(nowPage/10)+11 : 
             nowPage-10 < 0 ? 1 : Math.floor(nowPage/10)-10 ;
-            // console.log(nowPage, Math.floor(nowPage/10)+11);
             render(nowPage);
         })
     });
