@@ -102,7 +102,7 @@
                         </div>
                     </div>
                     <div class="item flex">
-                        <a href="#">선거/투표</a>
+                        <a href="/voting">선거/투표</a>
 
                     </div>
                     <div class="item flex">
