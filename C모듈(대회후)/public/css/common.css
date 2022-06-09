@@ -256,12 +256,22 @@ button{border: none; background: none; cursor: pointer;}
 .popupwrap .popup form .top_item{justify-content: space-between; border-bottom: 3px solid #cfa63c; padding: .5rem 0rem;}
 .popupwrap .popup form .input_item{align-items: center; gap: .4rem;}
 .popupwrap .popup form .item{flex-direction: column; gap: .4rem;  border-bottom: 3px solid #cfa63c; padding: 1rem 0rem;}
-.popupwrap .popup form .btn_item{justify-content: center; gap: 1rem;}
+.popupwrap .popup form .btn_item{justify-content: space-between; gap: 1rem;}
 .popupwrap .popup form .item input{padding: .4rem 0rem;}
 .popupwrap .popup form .btn_item button{ border: 1px solid #cfa63c; padding: .4rem 1rem; font-weight: bold;}
+.popupwrap .popup form .input_box{gap: 1rem; }
+.popupwrap .popup form .input_box input{width: 200px;}
+.popupwrap .popup form .item_header{justify-content: space-between; align-items: center;}
+.popupwrap .popup form .item_header .input_add_btn{padding: .25rem .7rem; border: 1px solid #cfa63c; }
+.popupwrap .popup form .input_container input{width: 400px;}
+
 textarea::placeholder{color: #000; font-weight: bold;}
 button{transition: .5s;};
 button:hover{transition: .5s; background: #cfa63c !important; color: #fff !important;}
 input,textarea{color: #000;}
 
 .close_btn{cursor: pointer;}
+.addBtn{position: fixed; right: 5%; top: 70%; display: flex; justify-content: center; align-items: center; width: 50px; height: 50px; border: 1px solid #fff; border-radius: 50%; background: #270a0a2d;  color: #fff; transition: .3s; cursor: pointer;}
+.addBtn:hover{transition: .3s; color: #cfa63c !important; border: 1px solid #cfa63c;}
+
+.addBtn p{text-align: center; }

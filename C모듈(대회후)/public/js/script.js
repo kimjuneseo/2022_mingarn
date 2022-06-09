@@ -10,6 +10,7 @@ const get = async (url) => {
     page === 'chartPage' ? chartPage() :
     page === 'eventPage' ? eventPage() :
     page === 'storePage' ? storePage() :
+    page === 'votingPage'? votingPage():
     '';
 }
 
@@ -414,4 +415,8 @@ function storePage(){
         $('.insert_form').classList.remove('none');
 
     });
+}
+
+function votingPage(){
+    
 }
