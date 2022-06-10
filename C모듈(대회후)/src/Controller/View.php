@@ -20,7 +20,9 @@ class View{
         view('store', ["item"=>$data]);
     }
     function voting(){
-        view('voting');
+        $data = fetchAll('select vt.name, vt.start_date, vt.end_date,vt.end_date, vt.all_user, it.item_true+it.item_false+it.item_not from item_tbl it join voting_tbl vt on it.voting = vt.idx GROUP by vt.name, vt.start_date, vt.end_date,vt.end_date, vt.all_user, it.item_true+it.item_false+it.item_not  order by vt.idx desc');
+        // var_dump($data);
+        view('voting', ["list"=>$data]);
     }
  
     

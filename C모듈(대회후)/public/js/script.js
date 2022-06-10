@@ -1,4 +1,6 @@
 const $ = (el, all) => all ? document.querySelectorAll(el) : document.querySelector(el);
+const addClass = (el, name) => el.classList.add(name);
+const removeClass = (el, name) => el.classList.remove(name);
 const get = async (url) => {
     const data = await fetch(url, {}).then(res => res.json());
 
@@ -418,5 +420,10 @@ function storePage(){
 }
 
 function votingPage(){
+
     
+
+    $('.addBtn').addEventListener("click", () => removeClass($(".popupwrap"), "none"));
+    // 모든 팝업 닫기
+    [...$(".close_btn", true)].forEach(e => e.addEventListener("click", e => e.target.closest(".popupwrap").classList.add("none")));
 }

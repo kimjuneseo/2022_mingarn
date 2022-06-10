@@ -12,7 +12,7 @@ $get(
 $post(
     "/insert@Store@insert",
     "/store/update@Store@update",
-    "/voting/insert"
+    "/voting/insert@Voting@insert"
 );
 
 

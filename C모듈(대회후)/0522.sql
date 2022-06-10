@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- 생성 시간: 22-06-09 10:08
+-- 생성 시간: 22-06-10 13:56
 -- 서버 버전: 10.4.20-MariaDB
 -- PHP 버전: 8.0.9
 
@@ -36,6 +36,16 @@ CREATE TABLE `item_tbl` (
   `item_not` int(100) NOT NULL,
   `item_all` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 테이블의 덤프 데이터 `item_tbl`
+--
+
+INSERT INTO `item_tbl` (`idx`, `voting`, `name`, `item_true`, `item_false`, `item_not`, `item_all`) VALUES
+(1, 5, '123', 0, 0, 0, 0),
+(2, 5, '123', 0, 0, 0, 0),
+(3, 6, '준서', 0, 0, 0, 0),
+(4, 6, '', 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -156,8 +166,19 @@ INSERT INTO `store` (`idx`, `name`, `type`, `phone`, `adress`, `rm`) VALUES
 
 CREATE TABLE `voting_tbl` (
   `idx` int(11) NOT NULL,
-  `name` text NOT NULL
+  `name` text NOT NULL,
+  `start_date` text NOT NULL,
+  `end_date` text NOT NULL,
+  `all_user` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 테이블의 덤프 데이터 `voting_tbl`
+--
+
+INSERT INTO `voting_tbl` (`idx`, `name`, `start_date`, `end_date`, `all_user`) VALUES
+(5, '여준우 죽이자', '2022-06-16', '2022-06-09', 123),
+(6, 'ㄴㅇㄹ', '2022-06-16', '2022-06-15', 123456);
 
 --
 -- 덤프된 테이블의 인덱스
@@ -189,7 +210,7 @@ ALTER TABLE `voting_tbl`
 -- 테이블의 AUTO_INCREMENT `item_tbl`
 --
 ALTER TABLE `item_tbl`
-  MODIFY `idx` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `idx` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- 테이블의 AUTO_INCREMENT `store`
@@ -201,7 +222,7 @@ ALTER TABLE `store`
 -- 테이블의 AUTO_INCREMENT `voting_tbl`
 --
 ALTER TABLE `voting_tbl`
-  MODIFY `idx` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idx` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

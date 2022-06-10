@@ -1,19 +1,19 @@
 <main id="votingPage"></main>
-<div class="popupwrap">
+<div class="none popupwrap">
     <div class="popup flex">
-        <form action="/voting" method="post" class="flex">
+        <form action="/voting/insert" method="post" class="flex">
             <div class="top_item flex">
                 <p>선거/투표 관리</p>
-                <p>X</p>
+                <button class="close_btn" type="button">X</button>
             </div>
             <div class="item flex">
                 <p>선거/투표명</p>
-                <input type="text" placeholder="선거/투표명을 입력하세요.">
+                <input type="text" name="voting" placeholder="선거/투표명을 입력하세요.">
             </div>
             <div class="item flex">
                 <p>선거/투표 기간</p>
                 <div class="input_box flex">
-                    <input type="date" name="first_date">~
+                    <input type="date" name="start_date">~
                     <input type="date" name="end_date">
 
                 </div>
@@ -21,7 +21,7 @@
             <div class="item flex">
                 <p>투표대상</p>
                 <div class="input_box flex">
-                    <input type="text" name="all_user" placeholder="투표대상 인원을 입력하세요."> 명
+                    <input type="number" name="all_user" placeholder="투표대상 인원을 입력하세요."> 명
                 </div>
             </div>
             <div class="item flex">
@@ -63,15 +63,18 @@
                 <div class="item">투표율</div>
                 <div class="item">투표 및 결과</div>
             </div>
+            <?php for($i = 1; $i <= count($list); $i++):?>
             <div class="voting_template voting_item">
-                <div class="item">1</div>
-                <div class="item">선거관리위원 해촉 및 관리비 횡령 관련 민/형사 고발 안건 투표</div>
-                <div class="item">22.04.04 ~ 22.05.01</div>
-                <div class="item">222명</div>
-                <div class="item">222명</div>
-                <div class="item">59%</div>
-                <div class="item"></div>
+                <div class="item"><?=$i?></div>
+                <div class="item"><?=$list[$i-1]->name?></div>
+                <div class="item"><?=$list[$i-1]->start_date?> ~ <?=$list[$i-1]->end_date?></div>
+                <div class="item"><?=$list[$i-1]->all_user?>명</div>
+                <div class="item"><?=$list[$i-1]->all_voting?>명</div>
+                
+                
+                
             </div>
+            <?php endfor;?>
 
         </div>
 </section>
