@@ -419,9 +419,11 @@ function storePage(){
     });
 }
 
-function votingPage(){
+async function votingPage(){
 
-    
+    const selectVoting = async (idx) => await get(`/voting/api/${idx}`);
+
+    $('.add_voting').addEventListener("click", (e) => selectVoting(e.target.closest('.voting_item').dataset.idx));
 
     $('.addBtn').addEventListener("click", () => removeClass($(".popupwrap"), "none"));
     // 모든 팝업 닫기
