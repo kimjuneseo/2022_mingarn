@@ -252,18 +252,19 @@ button{border: none; background: none; cursor: pointer;}
 .popupwrap{position: fixed; top: 0; left: 0;z-index: 200; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.356);}
 .popupwrap input[type="radio"]{display: block !important;}
 .popupwrap .popup{position: absolute; width: 100%; height: 100%; top: 0; left: 0; align-items: center; justify-content: center; flex-direction: column; }
-.popupwrap .popup form{color: #cfa63c; width: 500px; height: 750px;  padding: 1rem; flex-direction: column; background: #270a0a; gap: 1.5rem;}
-.popupwrap .popup form .top_item{justify-content: space-between; border-bottom: 3px solid #cfa63c; padding: .5rem 0rem;}
-.popupwrap .popup form .input_item{align-items: center; gap: .4rem;}
-.popupwrap .popup form .item{flex-direction: column; gap: .4rem;  border-bottom: 3px solid #cfa63c; padding: 1rem 0rem;}
-.popupwrap .popup form .btn_item{justify-content: space-between; gap: 1rem;}
-.popupwrap .popup form .item input{padding: .4rem 0rem;}
-.popupwrap .popup form .btn_item button{ border: 1px solid #cfa63c; padding: .4rem 1rem; font-weight: bold;}
-.popupwrap .popup form .input_box{gap: 1rem; }
-.popupwrap .popup form .input_box input{width: 200px;}
-.popupwrap .popup form .item_header{justify-content: space-between; align-items: center;}
-.popupwrap .popup form .item_header .input_add_btn{padding: .25rem .7rem; border: 1px solid #cfa63c; }
-.popupwrap .popup form .input_container input{width: 400px;}
+.popupwrap .popup .popup_form{color: #cfa63c; width: 500px; height: 750px;  padding: 1rem; flex-direction: column; background: #270a0a; gap: 1.5rem;}
+.popupwrap .popup .popup_form .top_item{justify-content: space-between; border-bottom: 3px solid #cfa63c; padding: .5rem 0rem;}
+.popupwrap .popup .popup_form .input_item{align-items: center; gap: .4rem;}
+.popupwrap .popup .popup_form .item{flex-direction: column; gap: .4rem;  border-bottom: 3px solid #cfa63c; padding: 1rem 0rem;}
+.popupwrap .popup .popup_form .btn_item{justify-content: space-between; gap: 1rem;}
+.popupwrap .popup .popup_form .item input{padding: .4rem 0rem;}
+.popupwrap .popup .popup_form .btn_item button{ border: 1px solid #cfa63c; padding: .4rem 1rem; font-weight: bold;}
+.popupwrap .popup .popup_form input[name="voting"]{display: none !important;}
+.popupwrap .popup .popup_form .input_box{gap: 1rem; }
+.popupwrap .popup .popup_form .input_box input{width: 200px;}
+.popupwrap .popup .popup_form .item_header{justify-content: space-between; align-items: center;}
+.popupwrap .popup .popup_form .item_header .input_add_btn{padding: .25rem .7rem; border: 1px solid #cfa63c; }
+.popupwrap .popup .popup_form .input_container input{width: 400px;}
 
 textarea::placeholder{color: #000; font-weight: bold;}
 button{transition: .5s;};
@@ -275,3 +276,20 @@ input,textarea{color: #000;}
 .addBtn:hover{transition: .3s; color: #cfa63c !important; border: 1px solid #cfa63c;}
 
 .addBtn p{text-align: center; }
+
+.voting_modal .popup .popup_form .label_item{  justify-content: space-between;  }
+.voting_modal .popup .popup_form .label_item label{width: 100%; text-align: center; flex: 1; border: 1px solid #cfa63c; line-height: 50px; }
+.voting_modal .popup .popup_form .tap_item{gap: 1rem; flex-direction: column;}
+.voting_modal .popup .popup_form .tap_item .input_container{gap: .4rem; align-items: center;}
+.voting_modal .popup .popup_form .tap_item .input_container input{width: 100px;}
+.voting_modal .popup .popup_form .tap_item .btn_item{justify-content: flex-end;}
+
+.voting_modal .popup .popup_form #voting1:checked ~.label_item label:nth-child(1){background: #4e1414;}
+.voting_modal .popup .popup_form #voting2:checked ~.label_item label:nth-child(2){background: #4e1414;}
+.voting_modal .popup .popup_form #voting3:checked ~.label_item label:nth-child(3){background: #4e1414;}
+
+.voting_modal .popup .popup_form #voting1:checked ~.tap_item:nth-last-of-type(1){display: flex !important;}
+.voting_modal .popup .popup_form #voting2:checked ~.tap_item:nth-last-of-type(2){display: flex !important;}
+.voting_modal .popup .popup_form #voting3:checked ~.tap_item:nth-last-of-type(3){display: flex !important;}
+
+.voting_modal .popup .popup_form .votingItem{flex-direction: column;}

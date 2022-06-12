@@ -420,10 +420,37 @@ function storePage(){
 }
 
 async function votingPage(){
-
     const selectVoting = async (idx) => await get(`/voting/api/${idx}`);
+    
+    const $votingNameInputs = $('input[name="voting_name"]',true);
+    const $votingList = $('.tap_item .votings');
+    const addModalDate = async (e) => {
+        removeClass($('.voting_modal'),'none');
+        const data = await selectVoting(e.target.closest('.voting_item').dataset.idx);    
+        $votingNameInputs.forEach(e =>  e.value = data.name);
+        console.log();
+        data.votings.forEach((e,idx) => {
+            let div = document.createElement('div');
+            div.classList.add('voting_list', 'flex');
+            console.log(e)
+            div.innerHTML = `
+            <div class="votingItem flex">
+                <div class="voting_title">${e.votingName}</div>
+                <div class="input_container flex"> 
+                    <div class="input_item"><input type="radio" name="opinion${idx}[]">찬성</div>
+                    <div class="input_item"><input type="radio" name="opinion${idx}[]">빈대</div>
+                    <div class="input_item"><input type="radio" name="opinion${idx}[]">기권</div>
+                </div>
+            </div>
+            `;
+            
+            $votingList.appendChild(div);
 
-    $('.add_voting').addEventListener("click", (e) => selectVoting(e.target.closest('.voting_item').dataset.idx));
+        })
+        
+    };
+    
+    $('.add_voting').addEventListener("click", (e) => addModalDate(e));
 
     $('.addBtn').addEventListener("click", () => removeClass($(".popupwrap"), "none"));
     // 모든 팝업 닫기
